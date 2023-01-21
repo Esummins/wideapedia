@@ -1,19 +1,23 @@
-// Offending classes
-let class_names = ['mw-page-container', 'mw-content-container']
+console.log("Wideapedia active.")
 
-// New layout check
-if (document.getElementsByClassName(class_names[0]).length > 0) {
-  class_names.forEach(function(class_name) {
-    // grab element by classname
-    let element = document.getElementsByClassName(class_name)[0]
+addEventListener('DOMContentLoaded', () => {
+  // Offending classes
+  let class_names = ['mw-page-container', 'mw-content-container']
 
-    // preserve any existing styles
-    if (!element.getAttribute('style')) {
-      element.setAttribute('style', "")
-    }
-    let current_style = element.getAttribute('style')
+  // New layout check
+  if (document.getElementsByClassName(class_names[0]).length > 0) {
+    class_names.forEach(function(class_name) {
+      // grab element by classname
+      let element = document.getElementsByClassName(class_name)[0]
 
-    // remove max-width
-    element.setAttribute("style", current_style + " max-width: none;")
-  });
-}
+      // preserve any existing styles
+      if (!element.getAttribute('style')) {
+        element.setAttribute('style', "")
+      }
+      let current_style = element.getAttribute('style')
+
+      // remove max-width
+      element.setAttribute("style", current_style + " max-width: none;")
+    });
+  }
+});
